@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="header">
+    <span class="arrow"> << </span>
+    <span id="date" class="section">
+        <span id="month_day"> {{ month }} {{ day }} </span>
+        <span id="year">{{ year }}</span>
+    </span>
+    <span class="arrow"> >> </span>
+</div>
+
+
+<div id="main_container">
+
+<span class="col_left">
+
+    <div>
+        <span class="section">Quote of the Day</span>
+        <p>{{ quote }}</p>
+    </div>
+
+    <div>
+        <span class="section">Monthly Goals</span>
+        <ul>
+            <li>Here are</li>
+            <li>are</li>
+            <li>some hard-coded</li>
+            <li>goals that I'm</li>
+            <li>working on!</li>
+        </ul>
+    </div>
+
+    <div>
+        <span class="section">Weekly Goals</span>
+        <ul>
+            <li>And hooray!</li>
+            <li>I've got </li>
+            <li>(soul but i'm not a soldier)</li>
+            <li>some more goals</li>
+            <li>that I hope to reach!</li>
+        </ul>
+    </div>
+
+    
+
+    <div>
+        <span class="section">Most Important Tasks</span>
+        <ul>
+            <li><input type="text" name="most_important_task1" placeholder="1" class="input_text"></li>
+            <li><input type="text" name="most_important_task2" placeholder="2" class="input_text"></li>
+            <li><input type="text" name="most_important_task3" placeholder="3" class="input_text"></li>
+            <li><input type="text" name="most_important_task4" placeholder="4" class="input_text"></li>
+            <li><input type="text" name="most_important_task5" placeholder="5" class="input_text"></li>
+            <li><input type="text" name="most_important_task6" placeholder="6" class="input_text"></li>
+            <li class="submit_align"><input type="submit" class="submit"></li>
+        </ul>
+        
+    </div>
+
+    <div>
+        <span class="section">Events</span>
+        <p>HRMM... figuring out how to pull events in a nicely formatted way is gonna potentially be tough. Ionno. Let's work on it some other day!</p>
+    </div>
+    
+</span>
+
+<!-- Right column. -->
+
+<span class="col_right">
+
+    <div>
+        <span class="section">Gratitude</span>
+        <form>
+            <ul>
+                <li><input type="text" name="gratitude1" placeholder="what are you grateful for?" class="input_text"></li>
+                <li><input type="text" name="gratitude2" placeholder="2" class="input_text"></li>
+                <li><input type="text" name="gratitude3" placeholder="3" class="input_text"></li>
+                <li class="submit_align"><input type="submit" class="submit"></li>
+            </ul>
+            
+        </form>
+    </div>
+
+    <div>
+        <span class="section">Lessons Learned</span>
+        <form>
+            <textarea class="input_text input_textarea">Everything I do, I'm gonna think of you.</textarea>
+            <span class="submit_align"><input type="submit" class="submit"></span>
+        </form>
+    </div>
+
+
+
+    <div>
+        <span class="section">Wins</span>
+        <form>
+            <textarea class="input_text input_textarea">don't know what else to do.</textarea>
+            <span class="submit_align"><input type="submit" class="submit"></span>
+        </form>
+    </div>
+
+    <div>
+        <span class="section">Habits</span>
+        <p>Oh man! Building a habit tracker is gonna take more than tonight.</p>
+    </div>
+
+    
+</span>
+
+</div>
+{% endblock content %}

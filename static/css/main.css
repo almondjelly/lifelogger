@@ -1,0 +1,148 @@
+body {
+    margin: 0px auto;
+    padding: 20px 0 0 0;
+    width: 55%;
+    font-family: 'Palanquin', sans-serif;
+    font-size: 13pt;
+    line-height: 16pt;
+    color: grey;
+    text-transform: lowercase;
+    background-color: #f7f7f7;
+}
+
+
+.col_left {
+    margin: 0;
+    width: 44%;
+    display: inline-block;
+    float: left;
+}
+
+.col_right {
+    margin: 0;
+    width: 44%;
+    display: inline-block;
+    float: right;
+    padding-right: 15px;
+}
+
+.header {
+    width: 103%;
+    text-align: right;
+    letter-spacing: -5px;
+    padding: 50px 0px 30px 0px;
+}
+
+.arrow {
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 2.7em;
+    padding: 0px 50px;
+    letter-spacing: -20px;
+}
+
+#date {
+    display: inline;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: normal;
+}
+
+#month_day {
+    text-transform: uppercase;
+    font-size: 1.4em;
+    padding-right: 10px;
+}
+
+#year {
+    color: #bcbcbc;
+    font-size: 1.4em;
+}
+
+.section {
+    font-family: 'Amatic SC', cursive;
+    text-transform: lowercase;
+    font-size: 1.8em;
+    font-weight: bold;
+    width: 100%;
+    display: block;
+    line-height: 1.3em;
+    color: black;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    color: grey;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.input_text {
+    font-family: 'Palanquin', cursive;
+    background-color: aquamarine;
+    width: 100%;
+    border: 0;
+    font-size: 14pt;
+    padding: 2px 10px;
+    height: 28pt;
+    margin: 3px;
+    resize: none;
+    outline: none;
+    color: grey;
+}
+
+input[type=text]:focus {
+    border: 0;
+    background-color: yellow;
+}
+
+textarea:focus {
+    border: 0;
+    background-color: yellow;
+}
+
+input[type=submit]:focus {
+    background-color: aquamarine;
+    border: 2px solid aquamarine;
+}
+
+.input_textarea {
+    height: 200px;
+    line-height: 18pt;
+    padding: 6px 10px;
+}
+
+.submit {
+    background-color: white;
+    border: 2px solid aquamarine;
+    outline: none;
+    font-family: 'Amatic SC', cursive;
+    font-size: 20pt;
+    padding: 4px;
+    text-transform: uppercase;
+    width: 40%;
+    text-align: center;
+}
+
+.submit_align {
+    display: block;
+    width: 104%;
+    padding: 6px;
+    text-align: right;
+}
+
+#main_container {
+    display: inline-block;
+    padding: 30px;
+    background-color: white;
+    height: 100%;
+}
