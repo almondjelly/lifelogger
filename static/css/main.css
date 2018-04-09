@@ -1,7 +1,7 @@
 body {
     margin: 0px auto;
     padding: 20px 0 0 0;
-    width: 55%;
+    width: 65%;
     font-family: 'Palanquin', sans-serif;
     font-size: 13pt;
     line-height: 16pt;
@@ -136,9 +136,10 @@ input[type=submit]:focus {
 
 .submit_align {
     display: block;
-    width: 104%;
-    padding: 6px;
+    width: 100%;
     text-align: right;
+    padding: 6px;
+    clear: both;
 }
 
 #main_container {
@@ -146,4 +147,30 @@ input[type=submit]:focus {
     padding: 30px;
     background-color: white;
     height: 100%;
+}
+
+.row {
+    width: 100%;
+    clear: both;
+}
+
+.last_week {
+    display: inline-block;
+    width: 35%;
+    float: left;
+    padding: 2px;
+}
+
+.question {
+    display: inline-block;
+    width: 25%;
+    padding: 2px;
+    text-align: center;
+}
+
+.this_week {
+    display: inline-block;
+    width: 35%;
+    float: right;
+    padding: 2px;
 }

@@ -1,26 +1,11 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 import datetime
 import quotes
 import stopwatch
-
-
-# from flask_sqlalchemy import SQLAlchemy
-
-# db = SQLAlchemy()
-
-
-# def connect_to_db(app):
-#     """Connect to database."""
-
-#     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///melondb'
-#     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#     db.app = app
-#     db.init_app(app)
+import weekly
 
 
 app = Flask(__name__)
-
-# connect_to_db(app)
 
 
 @app.route("/")
@@ -57,8 +42,45 @@ def view_daily_log():
                            quote=quote
                            )
 
-# @app.route("/weekly")
-# def view_weekly_log():
+
+@app.route("/weekly-add", methods=["POST"])
+def add_weekly_question():
+    """Add a new question to the weekly review."""
+
+    question_short = request.form.get('question_short')
+    question_long = request.form.get('question_long')
+    weekly.add_new_weekly_question(question_short, question_long)
+
+    return redirect("/weekly")
+
+
+@app.route("/weekly-submit", methods=["POST"])
+def submit_answer():
+    """Add answer to weeklyreview table."""
+
+    count = int(request.form.get('count'))
+    while count > 0:
+        short_q_str = 'short_q' + str(count)
+        short_q = request.form.get(short_q_str)
+
+        question_answer_str = 'question_answer' + str(count)
+        answer = request.form.get(question_answer_str)
+
+        weekly.answer_weekly_question(short_q, answer)
+
+        count = count - 1
+
+    return redirect("/weekly")
+
+
+@app.route("/weekly")
+def view_weekly_log():
+    """Display weekly review page."""
+
+    q = weekly.get_last_week_questions('2018-04-08')
+
+    return render_template("weekly-review.html", questions=q)
+
 
 swatch = stopwatch.Stopwatch()
 
@@ -80,5 +102,7 @@ def staph_stopwatch():
 
 
 if __name__ == "__main__":
+
+    weekly.connect_to_db(app)
 
     app.run(debug=True)

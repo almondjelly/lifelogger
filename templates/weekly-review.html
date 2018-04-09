@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="header">
+    <span class="arrow"> << </span>
+    <span id="date" class="section">
+        <span id="month_day"> {{ month }} {{ day }} </span>
+        <span id="year">{{ year }}</span>
+    </span>
+    <span class="arrow"> >> </span>
+</div>
+
+
+<div id="main_container">
+
+    <div>
+        <form action="/weekly-add" method="POST">
+            wanna add a new question to your weekly review?
+            <input type="text" name="question_short" placeholder="Title">
+            <input type="text" name="question_long" placeholder="Question">
+            <input type="submit" value="Add">
+        </form>
+    </div>
+
+    <form action="/weekly-submit" method="POST">
+    {% set counter = 0 %}
+    {% for short, long, answer in questions %}
+        <div class="row">
+            <div class="last_week"><br>{{ answer }}</div>
+            <div class="question section">{{ long }}</div>
+            <div class="this_week">
+                {% set q_a_str = 'question_answer' + counter|string %}
+
+                <textarea class="input_text input_textarea" name={{ q_a_str }} required>Answer me!</textarea>
+                <input name="short_q{{ counter|string }}" value={{ short }} type="hidden">
+            </div>
+        </div>
+        {% set counter = counter + 1 %}
+    {% endfor %}
+    <input type="hidden" name="count" value="{{ counter }}">
+    <ul><li><span class="submit_align"><input type="submit" class="submit"></span></li></ul>
+    </form>
+
+
+
+</div>
+
+
+
+{{ duration }}
+{% endblock content %}
