@@ -60,20 +60,13 @@ def view_daily_log():
 # @app.route("/weekly")
 # def view_weekly_log():
 
-swatch = stopwatch.Stopwatch()
-
 @app.route("/start")
 def start_stopwatch():
-    swatch = stopwatch.Stopwatch()
-    swatch.start()
-    return render_template("index.html")
 
+    stopwatch = Stopwatch()
 
+    
 
-@app.route("/stop")
-def staph_stopwatch():
-    duration = swatch.stop()
-    return render_template("index.html", duration=duration)
 
 if __name__ == "__main__":
 
