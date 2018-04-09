@@ -65,14 +65,14 @@ swatch = stopwatch.Stopwatch()
 @app.route("/start")
 def start_stopwatch():
     swatch = stopwatch.Stopwatch()
-    swatch.start()
+    swatch.start_time()
     return render_template("index.html")
 
 
 
 @app.route("/stop")
 def staph_stopwatch():
-    duration = swatch.stop()
+    duration = swatch.stop_time()
     return render_template("index.html", duration=duration)
 
 if __name__ == "__main__":
