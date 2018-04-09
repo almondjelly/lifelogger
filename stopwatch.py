@@ -9,7 +9,7 @@ class Stopwatch(object):
 
     def start_time(self):
         """Start the timer and note the current date and time."""
-        
+
         self.start = datetime.datetime.now()
 
     
@@ -40,7 +40,7 @@ class ManualEntry(object):
         pass
 
 
-    def start(self):
+    def start_time(self):
         """Enter start time."""
 
         self.start_tokens = raw_input("Start (Year Month Day Hour Minute): ")
@@ -56,7 +56,7 @@ class ManualEntry(object):
         return self.start
 
 
-    def stop(self):
+    def stop_time(self):
         """Enter stop time."""
 
         self.stop_tokens = raw_input("Stop (Year Month Day Hour Minute): ")
@@ -77,8 +77,8 @@ class ManualEntry(object):
 
         self.duration = self.stop - self.start
         self.hours, self.remainder = divmod(self.duration.seconds, 3600)
-        self.minutes, self.seconds = divmod(self.remainder, 60) 
-        self.message = "Duration: {}h {}m {}s".format(self.hours, 
+        self.minutes, self.seconds = divmod(self.remainder, 60)
+        self.message = "Duration: {}h {}m {}s".format(self.hours,
                                                       self.minutes,
                                                       self.seconds)
 
@@ -107,7 +107,7 @@ class Log(object):
         self.entry.start_time()
         self.stop_timer = raw_input("Press enter to stop the timer.")
         self.entry.describe_task()
-        
+
         self.entry_counter += 1
         self.entry_log[self.entry_counter] = (self.entry.stop(), self.entry.description)
 
@@ -171,7 +171,7 @@ def display_menu():
 def start_user_mode():
     """Starts user interface for time logging."""
 
-    
+
     stop_program = False
 
     while stop_program == False:
@@ -187,7 +187,7 @@ def start_user_mode():
             log.create_manual_entry()
             print
             print
-            
+
         elif user_action == '3':
             log.print_log()
             print
